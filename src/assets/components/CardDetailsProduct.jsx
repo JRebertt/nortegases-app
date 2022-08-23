@@ -6,7 +6,7 @@ export function CardDetailsProduct({ name, imgUrl }) {
         <div className="w-64 h-40 lg:w-96 lg:h-80 flex justify-center items-center p-2 border-2 border-brand rounded-lg">
           {/* Content detail image product */}
           <img
-            className="w-52 h-32 lg:w-80 lg:h-64 "
+            className="w-40 h-32 lg:w-80 lg:h-64 "
             src={imgUrl}
             alt="Imagem do Produto"
           />
