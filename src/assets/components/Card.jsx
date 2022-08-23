@@ -1,9 +1,7 @@
 export function Card({ name, imgUrl, userId }) {
-
-function handleUserId(){
-  
-  console.log(userId)
-}
+  function handleUserId() {
+    console.log(userId);
+  }
   return (
     <>
       <button

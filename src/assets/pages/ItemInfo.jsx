@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { firestore } from "../services/firebase/firebaseConfig";
 import { doc, onSnapshot } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 import { Header } from "../components/Header";
-import { Card } from "../components/Card";
 
 import { CardDetailsProduct } from "../components/CardDetailsProduct";
 import { CardDetailsDescription } from "../components/CardDetaislDescription";
@@ -13,9 +13,10 @@ import { IconBack } from "../components/IconBack";
 export function ItemInfo() {
   const [isImg, setIsImg] = useState("");
   const [isName, setIsName] = useState("");
+  const params = useParams();
 
   useEffect(() => {
-    onSnapshot(doc(firestore, "produtos/0Dej2xAPEf5SokB2cnfV"), (doc) => {
+    onSnapshot(doc(firestore, `produtos/${params.id}`), (doc) => {
       const { imageUrl, name } = doc.data();
       setIsImg(imageUrl);
       setIsName(name);

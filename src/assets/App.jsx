@@ -24,7 +24,7 @@ export function App() {
         {products.map((product) => {
           return (
             <span key={product.id}>
-              <Link to="/cardDetail">
+              <Link to={`/cardDetail/${product.id}`}>
                 <Card
                   name={product.name}
                   imgUrl={product.imageUrl}
