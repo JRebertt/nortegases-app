@@ -1,13 +1,7 @@
-export function Card({ name, imgUrl, userId }) {
-  function handleUserId() {
-    console.log(userId);
-  }
+export function Card({ name, imgUrl }) {
   return (
     <>
-      <button
-        className="w-60 h-80 bg-white p-5 rounded-lg shadow-xl text-center"
-        onClick={handleUserId}
-      >
+      <button className="w-60 h-80 bg-white p-5 rounded-lg shadow-xl text-center">
         <div className="w-50 h-40 flex justify-center">
           <img src={imgUrl} alt={name} className="w-50 h-40" />
         </div>

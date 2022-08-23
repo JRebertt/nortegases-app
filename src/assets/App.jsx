@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 export function App() {
   const [products, setProducts] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const productsCollectionRef = collection(firestore, "produtos");
   const q = query(productsCollectionRef);
 
@@ -16,7 +15,7 @@ export function App() {
     onSnapshot(q, (snapshot) =>
       setProducts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-  }, [isModalOpen]);
+  });
   return (
     <>
       <Header />
@@ -29,8 +28,6 @@ export function App() {
                   name={product.name}
                   imgUrl={product.imageUrl}
                   userId={product.id}
-                  isModalOpen={isModalOpen}
-                  setIsModalOpen={setIsModalOpen}
                 />
               </Link>
             </span>
