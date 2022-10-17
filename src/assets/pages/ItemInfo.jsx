@@ -13,13 +13,16 @@ import { IconBack } from "../components/IconBack";
 export function ItemInfo() {
   const [isImg, setIsImg] = useState("");
   const [isName, setIsName] = useState("");
+  const [isDescription, setIsDescription] = useState("");
   const params = useParams();
 
   useEffect(() => {
     onSnapshot(doc(firestore, `produtos/${params.id}`), (doc) => {
-      const { imageUrl, name } = doc.data();
+      const { imageUrl, name, description } = doc.data();
       setIsImg(imageUrl);
       setIsName(name);
+      setIsDescription(description);
+      
     });
   }, []);
 
@@ -35,7 +38,7 @@ export function ItemInfo() {
             <div className="h-5/6 p-x-10 grid grid-rows-2 gap-16 justify-items-center content-center lg:grid-cols-2">
               <CardDetailsProduct imgUrl={isImg} name={isName} />
 
-              <CardDetailsDescription />
+              <CardDetailsDescription description={isDescription} />
             </div>
           </div>
         </div>

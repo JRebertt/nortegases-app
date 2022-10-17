@@ -7,7 +7,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 import { Link } from "react-router-dom";
 
-export function ItemListLogged({ name, imgUrl, id }) {
+export function ItemListLogged({ name, imgUrl, id, amount, category }) {
   async function handleDeleteItem() {
     await deleteDoc(doc(firestore, `produtos/${id}`));
   }
@@ -26,9 +26,9 @@ export function ItemListLogged({ name, imgUrl, id }) {
         </div>
         <div className="flex flex-col pt-2 px-4 text-center space-y-2">
           <div className="font-Sora font-bold font-lg tex-sm">{name}</div>
-          <p>Amount</p>
+          <p>{amount}</p>
           <span className="bg-gray-300 rounded-lg font-Syne font-medium">
-            category
+            {category}
           </span>
         </div>
       </div>

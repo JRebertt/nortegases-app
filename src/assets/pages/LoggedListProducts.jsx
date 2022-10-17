@@ -33,6 +33,8 @@ export function LoggedListProducts() {
                   name={product.name}
                   imgUrl={product.imageUrl}
                   id={product.id}
+                  category={product.category}
+                  amount={product.amount}
                 />
               </div>
             );
