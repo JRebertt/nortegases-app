@@ -21,7 +21,8 @@ export function UpdateItem() {
 
   useEffect(() => {
     onSnapshot(doc(firestore, `produtos/${params.id}`), (doc) => {
-      const { name, description } = doc.data();
+      console.log(doc.data())
+      const { name, description, imageUrl, category, amount } = doc.data();
       setIsDescription(description);
       setIsName(name);
       console.log(doc.data());
@@ -71,8 +72,8 @@ export function UpdateItem() {
                       id=""
                       className="block w-full flex-1 rounded-md border-gray-300 focus:border-brand focus:ring-brand sm:text-sm"
                     >
-                      <option value="">Medicinal</option>
-                      <option value="">Medicinal</option>
+                      <option value="Medicinal">Medicinal</option>
+                      <option value="Industry">Industrial</option>
                     </select>
                   </div>
                 </div>
